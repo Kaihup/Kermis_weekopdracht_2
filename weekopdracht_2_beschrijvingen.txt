@@ -1,0 +1,157 @@
+Yathzee
+
+Maak een Yahtzee spel op de command-line.
+In eerste instantie is het een 1 persoons-spel.
+Tref de regels van Yahtzee hier
+
+Onze weekopdracht zal zich richten op het programmeren van de basis-activiteit van het spel.
+
+De GUI ziet er als volgt uit:
+Het Toont:
+
+WORP1
+1 2 3 4 5
+6 2 3 3 4
+
+Welke posities wilt u vasthouden? 0 voor geen anders bv 124
+
+INVOER: 34 ENTER
+
+WORP2
+1 2 3 4 5
+3 6 3 3 2
+
+Druk Enter voor het werpen van een nieuwe worp. Druk q voor het stoppen met het spel.
+
+Volgorde van doelstellingen:
+1. Maak een loop in de public static void main die loopt zolang je op enter drukt, en stopt zodra je op q drukt.
+
+2. Maak een losse klasse YahtzeeSpel met een methode spelen(). Verhuis de loop van 1. naar de methode spelen().
+Instantieer een YahtzeeSpel in de psvm en start de methode spelen.
+
+3. Maak een losse methode werpen() in het YahtzeeSPel. Deze methode heeft int als return type.
+Zorg dat de aanroep van deze methode er voor zorgt dat er een getal tussen 1 en 6 terug komt.
+
+Echte dobbelstenen:
+4. Maak de methode een onderdeel van de klasse Dobbelsteen. Maak in de klasse YahtzeeSpel een Arraylist van Dobbelstenen.
+In de constructor van het YahtzeeSpel voeg je 5 dobbelstenen toe aan deze ArrayList.
+In de loop van spelen wordt over de Arraylist heengegaan met een enhanced for-loop en werp je iedere dobbelsteen.
+Hou in je dobbelsteen het resultaat van de worp vast.
+
+5. Maak een losse methode vasthouden(). Via een Scanner vraagt het programma om invoer. De invoer wordt via Integer.
+parseInt() omgezet tot een blokkeerarray van 0 en 1 bijvoorbeeld 11001. Dit blokkeerarray is een field van het YahtzeeSpel.
+
+6. Loop in de tweede worp over de arraylist heen en alleen als in de blokkeerarray een 0 staat wordt de dobbelsteen
+opnieuw geworpen.
+
+Nog meer objecten:
+7. Maak een klasse Worp, met een veld van het type int array met lengte 5. Een methode die de worp uitslag weergeeft.
+
+8. Maak een klasse Speler, met een veld worp-geschiedenis, dit is een array met een flinke lengte of een arraylist.
+
+9. Zorg dat aan het einde van een worp-cyclus zoals gemaakt tot stap zes, opgeslagen wordt in een Worp-object.
+Voeg deze toe aan de worp-geschiedenis van de speler.
+
+Meerdere spelers:
+10. Maak het spel geschikt voor het spelen met twee spelers.
+
+
+
+===========
+
+Kermis
+
+Je gaat een programma maken dat de omzet van een Kermis bijhoudt.
+De Kermis heeft een zestal attracties, die zijn allemaal subclasse van een klasse Attractie.
+
+Zodra het programma start kan er een getal worden ingegeven,
+1 voor botsauto's,
+2 voor spin,
+3 voor spiegelpaleis,
+4 voor spookhuis,
+5 voor hawaii,
+6 voor ladderklimmen.
+Stap 1:
+
+Zorg dat het bovenstaande stabiel werkt en dat iedere keer dat het getal wordt ingegeven er getoond wordt welke
+attractie draait.
+
+Aangenomen is dat je dit realiseert door een methode van een object aan te roepen, dus: attractie.draaien(); ipv
+System.out.println("de attractie draait"); In de methode draaien van de attractie
+mag System.out.println("de attractie '' draait"); natuurlijk wel gebruikt worden.
+
+Iedere attractie heeft een naam, een prijs en een oppervlakte.
+
+Stap 2:
+Botsauto's kosten 2.50,
+Spin 2.25,
+Spiegelpaleis 2.75,
+Spookhuis 3.20,
+Hawaii 2.90 en
+Ladderklimmen 5.00.
+
+Houdt in een centraal object Kassa bij wat de omzet is van de hele kermis.
+Houdt in iedere attractie bij hoeveel omzet elke attractie draait.
+Ook willen we weten hoe vaak er kaartjes per attractie zijn gekocht, en natuurlijk voor de attracties in het totaal.
+Met de invoer van de letter "o" zien we de omzet. Met de invoer van de letter "k" zien we het aantal kaartjes.
+
+Stap 3:
+Spin en Hawaii zijn zgn RisicoRijkeAttracties.
+RisicoRijkeAttracties moeten een keuring ondergaan nadat ze opgesteld zijn. Deze methode heet dus opstellingsKeuring().
+
+RisicoRijkeAttracties hebben een draaiLimiet. Dit is het aantal maal dat ze mogen draaien voordat er een onderhoudsbeurt
+moet plaatsvinden. Voor de Spin is dit 5 en voor de Hawaii is dit 10. In deze stap mag de onderhoudsbeurt nog handmatig
+worden aangeroepen.
+
+LadderKlimmen is een GokAttractie.
+GokAttracties moeten kansSpelBelastingBetalen(). De kansSpelBelasting is het reserveren van 30% over je omzet.
+Implementeer de RisicoRijkeAttracties met behulp van Abstracte Klassen.
+
+Implementeer de GokAttractie via een interface.
+
+Stap 4:
+Maak een Klasse BelastingInspecteur.
+Maak OF een input voor een bezoek van de BelastingInspecteur, bv 'b'.
+OF maak een random die 1 keer per 15 verkopen ervoor zorgt dat de BelastingInspecteur langskomt.
+
+De belastingInspecteur haalt meteen zijn belasting uit de omzet.
+De kassa moet natuurlijk bijhouden dat er een bezoek van de BelastingInspecteur is geweest.
+Een belasting inspecteur checkt van alle attracties of die van het Type GokAttractie zijn.
+
+Alleen voor Gokattracties wordt belasting geheven, de andere niet.
+Tenslotte maken we de Spin ook een GokAttractie om te kijken of ons Ontwerp goed werkt.
+
+Stap 5:
+We gaan onze Kermis applicatie een stuk robuuster maken.
+
+In plaats van de de applicatie-bediener zelf moet bijhouden of de Spin of Hawaii al over zijn 5 of 10 ritjes zit,
+gaat de applicatie dit bijhouden.
+Op het moment dat er een 6e of 11e kaartje wordt verkocht, throwt de Attractie een Exception.
+
+De applicatieBediener kan een monteur aanroepen mbv van de knop 'm'. Die doet zijn keuring en reset de attractie.
+Opslaan
+
+
+
+===========
+
+OPTIONELE OPDRACHT
+>>> Voor beginnen eerst een ontwerp maken
+>>> Ontwerp moet goed gekeurd worden voor je begint
+
+Dit keer stel ik geheel geen functionele eisen vast. Ik zal alleen verzoeken om .... technische eisen.
+
+De technische eisen zijn:
+1. Je moet minstens 7 klassen hebben. 1 daarvan moet abstract zijn. Elke klasse moet zijn eigen verantwoordelijkheid hebben.
+2. Er moeten in je programma minstens 2 interfaces zijn.
+3. 80 % van de methoden moet een ander returntype hebben dan void.
+4. 40 % van de parameters moet van een KlasseType zijn (Strings worden niet meegeteld).
+5. Minstens 7 keer zal de interface of het returntype of het parametertype moeten zijn.
+6. Er zal zelf een Exception-klasse gemaakt moeten worden.
+7. Een Exception zal minstens 3 keer gethrowd moeten worden in je programma.
+8. In je programma moet een constructor een keer worden overload.
+9. In je programma moet een constructor een keer worden geredirect.
+10. Je zult minstens 4 methoden moeten overriden
+11. Minstens 1 overridden methode moet een Exception throwsen.
+12. 1 constructor moet een exception throwen.
+13. Gebruik alleen native java, en het moet een console applicatie zijn
