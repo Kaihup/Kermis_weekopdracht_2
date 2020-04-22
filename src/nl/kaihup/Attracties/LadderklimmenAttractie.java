@@ -2,8 +2,8 @@ package nl.kaihup.Attracties;
 
 public class LadderklimmenAttractie extends Attractie implements GokAttractie {
 
-    public LadderklimmenAttractie(String naam, double prijs, double oppervlakte) {
-        super(naam, prijs, oppervlakte);
+    public LadderklimmenAttractie(String naam, double prijs, double lengte, double breedte) {
+        super(naam, prijs, lengte, breedte);
     }
 
     @Override

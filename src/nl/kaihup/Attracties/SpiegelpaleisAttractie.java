@@ -2,8 +2,8 @@ package nl.kaihup.Attracties;
 
 public class SpiegelpaleisAttractie extends Attractie {
 
-    public SpiegelpaleisAttractie(String naam, double prijs, double oppervlakte) {
-        super(naam, prijs, oppervlakte);
+    public SpiegelpaleisAttractie(String naam, double prijs, double lengte, double breedte) {
+        super(naam, prijs, lengte, breedte);
     }
 
     @Override

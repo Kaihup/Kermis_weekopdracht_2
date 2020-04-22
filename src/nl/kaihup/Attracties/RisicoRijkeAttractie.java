@@ -13,8 +13,8 @@ public abstract class RisicoRijkeAttractie extends Attractie {
         opstelingsKeuring(); // verplicht voor elke RisicoRijkeAttractie
     }
 
-    RisicoRijkeAttractie(String naam, double prijs, double oppervlakte, int draaiLimiet) {
-        super(naam, prijs, oppervlakte);
+    RisicoRijkeAttractie(String naam, double prijs, double lengte, double breedte, int draaiLimiet) {
+        super(naam, prijs, lengte, breedte);
         this.draaiLimiet = draaiLimiet;
     }
 
@@ -23,11 +23,10 @@ public abstract class RisicoRijkeAttractie extends Attractie {
      * De keuring wordt uitgevoerd door een Monteur.
      * Omdat de opstellingsKeuring verplicht voor elke RisicoRijke Attractie staat deze methode in het initializer block.
      */
-    void opstelingsKeuring() {
+    private void opstelingsKeuring() {
         System.out.println("\nOPSTELLINGSKEURING: "
                 + "\n\tAttractie: " + super.getNaam()
-                + "\n\tType: RisicorijkeAttractie"
-                + "\n\tDraailimiet: " + draaiLimiet + "\n");
+                + "\n\tType: RisicorijkeAttractie\n");
 
         Monteur monteur = new Monteur();
         monteur.opstellingsControle(this);
@@ -35,11 +34,11 @@ public abstract class RisicoRijkeAttractie extends Attractie {
 
     /**
      * Wanneer er geen Exceptions zijn wordt super.draaien() aangeroepen.
-     * Ook wordt dan het draailimiet bijgehouden door deze per ronde met 1 te verhogen.
+     * Ook wordt dan het draaiLimiet bijgehouden door deze per ronde met 1 te verhogen.
      * <p>
-     * Zodra het draailimiet is overschreden wordt er een DraaiLimietOverSchredenException gethrowt.
-     * Er moet dan een monteur worden opgeroepen om het DraaiLimiet te resetten.
-     * Zolang het draalLimiet niet is gereset, kan de attractie niet draaien.
+     * Zodra het draaiLimiet is overschreden wordt er een DraaiLimietOverSchredenException gethrowt.
+     * Een monteur wordt dan aangeroepen om het DraaiLimiet te resetten.
+     * De attractie kan niet draaien zolang het draaiLimiet nog niet is gereset.
      *
      * @return true <-- attractie heeft gedraaid || false <-- attractie heeft niet gedraaid
      */

@@ -38,7 +38,7 @@ public class BelastingInspecteur {
      */
     private BelastingRapport stuurBelastingRapport(HashMap<String, Double[]> controleDetails) {
         BelastingRapport rapport = new BelastingRapport(controleDetails);
-        rapport.printInspectieRapport();
+        rapport.printRapport();
         System.out.println("Belastinginspecteur: " + Utils.ic(Utils.ANSI_GREEN, "Inspectie afgerond. Rapport opgestuurd naar kermis."));
         return rapport;
     }

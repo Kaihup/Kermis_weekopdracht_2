@@ -10,7 +10,9 @@ public class Kassa {
 
     private ArrayList<BelastingRapport> belastingAdministratie = new ArrayList<>();
 
-    /* Print omzet overzicht */
+    /**
+     * Print omzet overzicht
+     */
     void printOmzetOverzicht(HashMap<Character, Attractie> attracties) {
         System.out.println("OMZET: ");
         double resultaat = 0;
@@ -22,7 +24,9 @@ public class Kassa {
         System.out.println("\t€ " + Utils.df(resultaat) + " Totaal");
     }
 
-    /* Print ticketverkoop overzicht */
+    /**
+     * Print ticketverkoop overzicht
+     */
     void printKaartverkoopOverzicht(HashMap<Character, Attractie> attracties) {
         System.out.println("VERKOCHTTE KAARTJES: ");
         int resultaat = 0;
@@ -35,7 +39,9 @@ public class Kassa {
     }
 
 
-    /* Return totale omzet */
+    /**
+     * @return totale omzet van de kermis
+     */
     double getOmzetTotaal(HashMap<Character, Attractie> attracties) {
         double resultaat = 0;
         for (Attractie attractie : attracties.values()) {
@@ -44,7 +50,9 @@ public class Kassa {
         return resultaat;
     }
 
-    /* Return totaal aantal kaartjes verkocht */
+    /**
+     * @return totaal aantal kaartjes verkocht
+     */
     int getKaartjesTotaal(HashMap<Character, Attractie> attracties) {
         int resultaat = 0;
         for (Attractie attractie : attracties.values()) {
@@ -54,10 +62,10 @@ public class Kassa {
         return resultaat;
     }
 
-    ArrayList<BelastingRapport> getBelastingAdministratie() {
-        return belastingAdministratie;
-    }
-
+    /**
+     * Print samenvattingen van alle BelastingRapporten, mists deze reeds zijn toegevoegd
+     * aan {@link #belastingAdministratie } via {@link #administreerBelastingRapport(BelastingRapport)}
+     */
     void printBeslastingAdministratie() {
         if (!belastingAdministratie.isEmpty()) {
             System.out.println("BELASTING ADMINISTRATIE");
@@ -70,7 +78,9 @@ public class Kassa {
         }
     }
 
-
+    /**
+     * Voegt belastingRapport toe aan {@link #belastingAdministratie} en geeft gebruiker hier een update over
+     */
     public void administreerBelastingRapport(BelastingRapport rapport) {
         belastingAdministratie.add(rapport);
         System.out.println("Centrale kassa: " + Utils.ic(Utils.ANSI_GREEN, "Rapport verwerkt en toegevoegd aan administratie van kermis."));

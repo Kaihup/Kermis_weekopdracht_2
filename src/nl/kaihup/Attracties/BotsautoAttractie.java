@@ -3,8 +3,8 @@ package nl.kaihup.Attracties;
 
 public class BotsautoAttractie extends Attractie {
 
-    public BotsautoAttractie(String naam, double prijs, double oppervlakte) {
-        super(naam, prijs, oppervlakte);
+    public BotsautoAttractie(String naam, double prijs, double lengte, double breedte) {
+        super(naam, prijs, lengte, breedte);
     }
 
     @Override

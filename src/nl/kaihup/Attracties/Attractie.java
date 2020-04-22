@@ -9,14 +9,19 @@ public abstract class Attractie {
     private double omzetTotaal;
     private double omzetBelastbaar;
     private double bedragGereserveerdVoorBelasting;
-    private double oppervlakte; // Staat in opdracht omschrijving, nog onduidelijk waarvoor deze variabele uiteindelijk te gebruiken.
+    private double oppervlakte; // Staat in opdracht omschrijving. Wordt nu (nog) niks mee gedaan.
     private int ticketsVerkocht;
 
 
-    public Attractie(String naam, double prijs, double oppervlakte) {
+    public Attractie(String naam, double prijs, double lengte, double breedte) {
         this.naam = naam;
         this.prijs = prijs;
-        this.oppervlakte = oppervlakte;
+        if (lengte * breedte >= 0) {
+            this.oppervlakte = lengte * breedte;
+        } else {
+            this.oppervlakte = 0;
+        }
+
     }
 
 

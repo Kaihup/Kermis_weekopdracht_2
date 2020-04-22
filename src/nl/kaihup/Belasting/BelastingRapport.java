@@ -10,11 +10,9 @@ import java.util.Map;
 
 public class BelastingRapport {
 
-    private final String DATE_FORMATTER = "yyyy-MM-dd";
-    private final String TIME_FORMATTER = "HH:mm:ss";
     private final LocalDateTime localDateTime = LocalDateTime.now();
-    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(DATE_FORMATTER);
-    private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern(TIME_FORMATTER);
+    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
     private final String datum = localDateTime.format(dateFormatter);
     private final String tijd = localDateTime.format(timeFormatter);
     private final int referentieNummer = -(datum.replaceAll(":", "") + tijd.replaceAll(":", "")).hashCode();
@@ -28,15 +26,21 @@ public class BelastingRapport {
     }
 
 
+    /**
+     * @return double[] met een opsomming van de bedragen per attractie.
+     */
     private double[] berekenTotalen() {
         double[] totalen = new double[3];
-        totalen[0] = berekenTotaalBedrag(0); // Totale omzet van alle geinspecteerde attracties
-        totalen[1] = berekenTotaalBedrag(1); // Totale omzet van alle geinspecteerde attracties
+        totalen[0] = berekenTotaalBedrag(0); // Totale omzet van alle geïnspecteerde attracties
+        totalen[1] = berekenTotaalBedrag(1); // Totale omzet van alle geïnspecteerde attracties
         totalen[2] = berekenTotaalBedrag(2); // Totale te betalen Kansspelbelasting (30%) van alle attracties over belastbare omzet
         return totalen;
     }
 
-
+    /**
+     * Op basis van aangeleverde Double[] in constructor kan per index het totale bedrag worden berekend.
+     * {@link #berekenTotalen()}}
+     */
     private double berekenTotaalBedrag(int index) {
         double resultaat = 0;
         for (Double[] values : attractieDetails.values()) {
@@ -45,8 +49,10 @@ public class BelastingRapport {
         return resultaat;
     }
 
-
-    void printInspectieRapport() {
+    /**
+     * Print op basis van attractieDetails het volledige rapport naar de console.
+     */
+    void printRapport() {
         /* Head */
         System.out.println("\n========================== RAPPORT KANSSPELBELASTING ===========================\n"
                 + "Referentienummer: " + referentieNummer
@@ -80,7 +86,9 @@ public class BelastingRapport {
         System.out.println("================================================================================");
     }
 
-
+    /**
+     * Print op basis van attractieDetails het een samenvatting van het rapport naar de console..
+     */
     public void printSamenvatting() {
         /* Head */
         System.out.println("\t____________________________________________________________"

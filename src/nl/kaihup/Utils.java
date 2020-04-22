@@ -5,6 +5,11 @@ import java.util.Scanner;
 public class Utils {
 
 
+    // Utils is een ondersteunende class, welke voor consistentie in het programma zorgt met betrekking tot:
+    // 1) Input vragen aan de user
+    // 2) Weergave van console output
+
+
     /**
      * Vraag user middels een scanner een specifieke situatie te bevestigen
      *
@@ -50,7 +55,7 @@ public class Utils {
      * Stopt het programma
      */
     void stopProgramma() {
-        System.out.println("PROGRAMMA AFSLUITEN");
+        System.out.println("EINDE PROGRAMMA");
         System.exit(0);
     }
 
