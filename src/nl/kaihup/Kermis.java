@@ -36,7 +36,7 @@ public class Kermis {
     }
 
     private void printnaam() {
-        System.out.println("\n====================== " + naam.toUpperCase() + " ======================");
+        System.out.println("\n===================== " + naam.toUpperCase() + " ======================");
     }
 
 
